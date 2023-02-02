@@ -5,8 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 export const ProposalCardView =(props)=> {
     const {
-        nameIdea, 
-        descriptionIdea, 
+        nameIdea,  
         area, 
         oven, 
         handleAproved, 
@@ -22,7 +21,6 @@ export const ProposalCardView =(props)=> {
                 <Button variant="outline-info" onClick = {handleDetail}>Detail</Button>
             </Card.Body>    
             <Card.Subtitle className="mb-2 text-muted">{area} - {oven}</Card.Subtitle>
-            <Card.Text>{descriptionIdea}</Card.Text>
             <Card.Body className='d-flex justify-content-evenly'>
                 <Button variant="outline-success" onClick = {handleAproved}>aproved</Button>
                 <Button variant="outline-warning" onClick = {handleComment}>comment</Button>

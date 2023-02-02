@@ -62,9 +62,6 @@ export const AddNewProposalComponent =()=> {
 
     }
 
-
-
-
     return (
         <AddNewProposalForm
         onChangeName = {onChangeName}

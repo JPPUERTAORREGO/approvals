@@ -17,7 +17,7 @@ export const AddNewProposalForm =(props)=> {
 
     return(
         <div className='container-xxl d-flex justify-content-center'>
-        <Form className = 'w-50 p-3 m-5 border border-dark-subtle bg-secondary'>
+        <Form className = 'w-50 p-3 m-5 border border-dark-subtle bg-secondary text-white'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Idea name / nombre de la idea</Form.Label>
                 <Form.Control onChange={onChangeName} type="text" maxLength='40' placeholder="Enter the name of the idea" />
@@ -72,7 +72,7 @@ export const AddNewProposalForm =(props)=> {
                     </Form.Select>
                 </Form.Group>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3 m-5" controlId="formBasicEmail">
                 <Form.Label>Implementation Value</Form.Label>
                 <Form.Control onChange={onChangeCost} type="number" maxLength='40' placeholder="Enter only numbers" />
                 <Form.Text className="text-muted">

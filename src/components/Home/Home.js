@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import {ButtonNav} from '../../utils/ButtonNav'
 
 export const Home =()=>{
     const navigate =useNavigate()
@@ -9,6 +10,9 @@ export const Home =()=>{
     }
 
     return(
-        <button onClick={handleOnProposals}>Go to all proposals</button>
+        <ButtonNav 
+        handleNav={handleOnProposals}
+        goTo={'proposals'}
+        />
     )
 }

@@ -56,8 +56,7 @@ export const AddNewProposalComponent =()=> {
         }
 
         setProposals([newProposal,...proposals])    
-        console.log('clicked', newProposal)
-        console.log('context', proposals)
+
         navigate('/proposals')
 
     }

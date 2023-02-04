@@ -1,45 +1,69 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ProposalsContext } from '../../context/ProposalsContext'
 import { ButtonNav } from '../../utils/ButtonNav'
-import { ProposalDetail } from '../ProposalDetail/ProposalDetail'
-import { AllProposalsComponent } from './AllProposalsComponent'
+import { ProposalCardView } from '../ProposalCard/ProposalCardView'
+import { ProposalDetailView } from '../ProposalDetail/ProposalDetailView'
+
 
 export const AllProposalsView =()=>{
-    const [activateDetail, setActivateDetail] = useState(false);
+    const {proposals} = useContext(ProposalsContext)
+    const [proposalDetail, setProposalDetail] = useState({});
+    const [showDetail, setShowDetail] = useState (false)
     const navigate = useNavigate()
+
     const handleAddProposal =()=>{
         navigate('/add-proposal')
     }
 
-    console.log("activate detail",activateDetail)
+    const handleDetail =(proposal) => {
+        setProposalDetail(proposal)
+        setShowDetail(!showDetail)
 
-    if (!activateDetail) {
-            return(  
-        <>  
-        <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
-        <div className='d-flex justify-content-between '>
-            <div className='d-flex justify-content-between '>
-                <AllProposalsComponent setActivateDetail={setActivateDetail} activateDetail={activateDetail}/>                 
-            </div>             
-            <ProposalDetail/>      
-        </div>
-        
-        </> 
-    )
     }
+
+    if (showDetail) {
+        return(  
+            <>  
+            <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
+            <div className='d-flex justify-content-between '>
+                <div className='d-flex justify-content-between '>
+                {proposals.map(proposal=>
+                <ProposalCardView
+                    key = {proposal.id}
+                    proposal = {proposal}
+                    handleDetail = {handleDetail}
+                    showDetail = {showDetail}
+                />)}  
+                <ProposalDetailView proposal = {proposalDetail}/>              
+                </div>             
+                  
+            </div>
+            
+            </> 
+        )
+    }
+
     else{
         return(  
             <>  
             <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
-            <div >
+            <div className='d-flex justify-content-between '>
                 <div className='d-flex justify-content-between '>
-                    <AllProposalsComponent setActivateDetail={setActivateDetail} activateDetail={activateDetail}/> 
-                </div>  
-             </div>
+                {proposals.map(proposal=>
+                <ProposalCardView
+                    key = {proposal.id}
+                    proposal = {proposal}
+                    handleDetail = {handleDetail}
+                />)}            
+                </div>           
+   
+            </div>
             
             </> 
         )
     }
 
 
-}
+    
+    }

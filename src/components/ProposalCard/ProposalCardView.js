@@ -5,27 +5,28 @@ import Button from 'react-bootstrap/Button'
 
 export const ProposalCardView =(props)=> {
     const {
-        nameIdea,  
-        area, 
-        oven, 
+        proposal,
         handleAproved, 
         handleComment,
         handleDenied,
-        handleDetail} = props  
+        handleDetail,
+        showDetail} = props  
 
     return (
         <Card style={{ width: '18rem' }}>
-        <Card.Body>
+        <Card.Body onClick={()=>handleDetail(proposal)}>
             <Card.Body className='d-flex justify-content-between'>
-                <Card.Title>{nameIdea}</Card.Title>
-                <Button variant="outline-info" onClick = {handleDetail}>Detail</Button>
+                <Card.Title>{proposal.nameIdea}</Card.Title>
             </Card.Body>    
-            <Card.Subtitle className="mb-2 text-muted">{area} - {oven}</Card.Subtitle>
-            <Card.Body className='d-flex justify-content-evenly'>
+            <Card.Subtitle className="mb-2 text-muted">{proposal.area} - {proposal.oven}</Card.Subtitle>
+            {showDetail
+            ? <Card.Body className='d-flex justify-content-evenly'>
                 <Button variant="outline-success" onClick = {handleAproved}>aproved</Button>
                 <Button variant="outline-warning" onClick = {handleComment}>comment</Button>
                 <Button variant="outline-danger" onClick = {handleDenied}>denied</Button>
-            </Card.Body> 
+            </Card.Body>
+            :<p></p>}
+ 
         </Card.Body>
     </Card>
     )

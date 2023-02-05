@@ -52,7 +52,10 @@ export const AddNewProposalComponent =()=> {
             boss : selectBoss,
             area : area,
             oven : oven,
-            state : 'pending'
+            stateCreate : 25,
+            stateAproved : 0,
+            stateComment : 0,
+            stateDecline : 0
         }
 
         setProposals([newProposal,...proposals])    

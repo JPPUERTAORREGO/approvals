@@ -1,27 +1,21 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
-
+import { ProgressBar } from 'react-bootstrap'
 
 export const ProposalDetailView =({proposal})=> {
-    const { 
-        id,
-        nameIdea, 
-        description,
-        cost,
-        boss,
-        area,
-        oven,
-        state ,
-        } = proposal
-
     return(
         <div>
-            <h1>{id} - {nameIdea}</h1>
-            <p>{description}</p>
-            <h2>{cost}</h2>
-            <h3>{area}-{oven}</h3>
-            <h3>jefe {boss}</h3>
-            <h3>{state}</h3>
+            <h1>{proposal.id} - {proposal.nameIdea}</h1>
+            <p>{proposal.description}</p>
+            <h2>{proposal.cost}</h2>
+            <h3>{proposal.area}-{proposal.oven}</h3>
+            <h3>jefe {proposal.boss}</h3>
+            <ProgressBar className='p-10'>
+            <ProgressBar striped variant="danger" now={proposal.stateCreate} label='propuesta'/>
+            <ProgressBar variant="warning" now={proposal.stateAproved} label='Ok jefe'/>
+            <ProgressBar variant="info" now={proposal.stateComment} label='comments'/>
+            <ProgressBar striped variant="success" now={proposal.stateDecline} label='Ok director'/>
+            </ProgressBar>
             <div className='d-flex justify-content-around'>
                 <Button variant="outline-primary">Aprobar</Button>
                 <Button variant="outline-warning">Comentar</Button>
@@ -30,16 +24,3 @@ export const ProposalDetailView =({proposal})=> {
         </div>
     )
 }
-
-/*
-id:Date.now(),
-            nameIdea : nameIdea,
-            description : description,
-            cost : cost,
-            boss : selectBoss,
-            area : area,
-            oven : oven,
-            state : 'pending',
-            viewDetail : false
-            
-            */

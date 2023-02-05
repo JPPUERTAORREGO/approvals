@@ -26,17 +26,18 @@ export const AllProposalsView =()=>{
         return(  
             <>  
             <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
-            <div className='d-flex justify-content-between '>
-                <div className='d-flex justify-content-between '>
+            <div className='d-flex justify-content-around'>
+                <div className='d-flex flex-column '>
                 {proposals.map(proposal=>
                 <ProposalCardView
                     key = {proposal.id}
                     proposal = {proposal}
                     handleDetail = {handleDetail}
-                    showDetail = {showDetail}
-                />)}  
-                <ProposalDetailView proposal = {proposalDetail}/>              
-                </div>             
+                />)}                              
+                </div>    
+                <div>
+                    <ProposalDetailView proposal = {proposalDetail}/>
+                </div>           
                   
             </div>
             
@@ -48,8 +49,8 @@ export const AllProposalsView =()=>{
         return(  
             <>  
             <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
-            <div className='d-flex justify-content-between '>
-                <div className='d-flex justify-content-between '>
+            <div>
+                <div className='d-flex flex-column'>
                 {proposals.map(proposal=>
                 <ProposalCardView
                     key = {proposal.id}

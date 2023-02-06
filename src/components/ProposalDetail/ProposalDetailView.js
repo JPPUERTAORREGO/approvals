@@ -1,13 +1,13 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import { ProgressBar } from 'react-bootstrap'
+import { CommentsForm } from '../Comments/CommentsForm'
 
-export const ProposalDetailView =({proposal, handleAproved})=> {
+export const ProposalDetailView =({proposal, handleAproved, handleComment, showCommentInput, handleSendComment, commmentText})=> {
 
     return(
         <div>
             <div>
-
                 <h2>{proposal.id} - {proposal.nameIdea}</h2>
                 <p>{proposal.description}</p>
                 <h2>{proposal.cost}</h2>
@@ -26,9 +26,19 @@ export const ProposalDetailView =({proposal, handleAproved})=> {
             <h3>actions</h3>
             <div className=' d-flex m-50 justify-content-around'>
                 <Button variant="outline-primary" onClick={()=>handleAproved(proposal)}>Aprobar</Button>
-                <Button variant="outline-warning">Comentar</Button>
+                <Button variant="outline-warning" onClick={()=>handleComment(proposal)}>Comentar</Button>
                 <Button variant="outline-danger">Rechazar</Button>
             </div>
+            {showCommentInput 
+            ?<div>
+                <CommentsForm handleSendComment = {handleSendComment}
+                    proposal = {proposal}
+                    commmentText={commmentText}
+                />
+            </div>
+            :<p></p>}
+
+            
         </div>
     )
 }

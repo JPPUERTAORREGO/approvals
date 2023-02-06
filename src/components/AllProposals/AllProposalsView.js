@@ -8,8 +8,10 @@ import { ProposalDetailView } from '../ProposalDetail/ProposalDetailView'
 
 export const AllProposalsView =()=>{
     const {proposals} = useContext(ProposalsContext)
-    const [proposalDetail, setProposalDetail] = useState({});
+    const [proposalDetail, setProposalDetail] = useState({})
     const [showDetail, setShowDetail] = useState (false)
+    const [showCommentInput, setShowCommentInput] = useState(false);
+    const [inputTextComment, setInputTextComment] = useState('')
 
     const handleAproved =(proposal)=> {
     proposal.stateAproved=25    
@@ -20,6 +22,24 @@ export const AllProposalsView =()=>{
 
     const handleAddProposal =()=>{
         navigate('/add-proposal')
+    }
+
+    const commmentText =(e)=> {
+        setInputTextComment(e.target.value)
+    }
+
+    const handleComment =(proposal)=> {
+        setShowCommentInput(!showCommentInput)
+        proposal.comments.bossComment=inputTextComment
+    }
+
+
+
+    const handleSendComment =(proposal)=> {
+        proposal.stateComment=25 
+        setShowCommentInput(!showCommentInput)
+        setShowDetail(!showDetail)
+        console.log('click from comment', proposal)
     }
 
     const handleDetail =(proposal) => {
@@ -43,7 +63,12 @@ export const AllProposalsView =()=>{
                 </div>    
                 <div className='border border-success'>
                     <ProposalDetailView proposal = {proposalDetail}
-                    handleAproved={handleAproved}/>
+                    handleAproved = {handleAproved}
+                    handleComment = {handleComment}
+                    showCommentInput = {showCommentInput}
+                    handleSendComment = {handleSendComment}
+                    commmentText = {commmentText}
+                    />
                 </div>           
                   
             </div>

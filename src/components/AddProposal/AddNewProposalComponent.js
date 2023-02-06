@@ -44,7 +44,7 @@ export const AddNewProposalComponent =()=> {
 
     const handleSubmit =(e)=> {
         e.preventDefault()
-        const newProposal ={
+        const newProposal ={            
             id:Date.now(),
             nameIdea : nameIdea,
             description : description,
@@ -55,7 +55,12 @@ export const AddNewProposalComponent =()=> {
             stateCreate : 25,
             stateAproved : 0,
             stateComment : 0,
-            stateDecline : 0
+            stateDecline : 0,
+            comments:{
+                bossComment : "",
+                directorComment : ""
+            }
+
         }
 
         setProposals([newProposal,...proposals])    

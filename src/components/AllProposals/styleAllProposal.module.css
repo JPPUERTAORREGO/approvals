@@ -1,0 +1,21 @@
+.container {
+    flex-wrap: wrap;
+    padding: 40px;
+    font-family: Arial;
+    text-align:center;
+    
+  }
+
+  .listProposals {
+    flex: content;
+    align-content: center;
+    border-color: red;
+    border-style:dashed;
+  }
+
+  .detail {
+    flex: content;
+    justify-content: center;
+    border-color: blue;
+    border-style:dashed;
+  }

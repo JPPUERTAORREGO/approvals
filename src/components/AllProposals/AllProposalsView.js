@@ -4,6 +4,7 @@ import { ProposalsContext } from '../../context/ProposalsContext'
 import { ButtonNav } from '../../utils/ButtonNav'
 import { ProposalCardView } from '../ProposalCard/ProposalCardView'
 import { ProposalDetailView } from '../ProposalDetail/ProposalDetailView'
+import styles from './styleAllProposal.module.css'
 
 
 export const AllProposalsView =()=>{
@@ -50,10 +51,10 @@ export const AllProposalsView =()=>{
 
     if (showDetail) {
         return(  
-            <>  
+            <div className={styles.container}>  
             <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
             <div className='d-flex justify-content-between'>
-                <div className='d-flex flex-column '>
+                <div className={styles.listProposals}>
                 {proposals.map(proposal=>
                 <ProposalCardView
                     key = {proposal.id}
@@ -61,7 +62,7 @@ export const AllProposalsView =()=>{
                     handleDetail = {handleDetail}
                 />)}                              
                 </div>    
-                <div className='border border-success'>
+                <div className={styles.detail}>
                     <ProposalDetailView proposal = {proposalDetail}
                     handleAproved = {handleAproved}
                     handleComment = {handleComment}
@@ -73,16 +74,16 @@ export const AllProposalsView =()=>{
                   
             </div>
             
-            </> 
+            </div> 
         )
     }
 
     else{
         return(  
-            <>  
+            <div className={styles.container}>  
             <ButtonNav handleNav={handleAddProposal}goTo='add a new proposal'/>  
             <div>
-                <div className='d-flex flex-column'>
+                <div className={styles.listProposals}>
                 {proposals.map(proposal=>
                 <ProposalCardView
                     key = {proposal.id}
@@ -93,7 +94,7 @@ export const AllProposalsView =()=>{
    
             </div>
             
-            </> 
+            </div> 
         )
     }
 

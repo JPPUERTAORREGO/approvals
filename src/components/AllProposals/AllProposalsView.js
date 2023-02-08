@@ -30,11 +30,9 @@ export const AllProposalsView =()=>{
     }
 
     const handleComment =(proposal)=> {
-        setShowCommentInput(!showCommentInput)
+        setShowCommentInput(!showCommentInput)        
         proposal.comments.bossComment=inputTextComment
     }
-
-
 
     const handleSendComment =(proposal)=> {
         proposal.stateComment=25 

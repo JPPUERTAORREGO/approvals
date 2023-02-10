@@ -6,6 +6,7 @@ import { CommentsForm } from '../Comments/CommentsForm'
 import styles from './styleDetail.module.css'
 
 export const ProposalDetailView =({proposal, handleAproved, handleComment, showCommentInput, handleSendComment, commmentText})=> {
+    console.log(proposal)
 
     return(
         <div className={styles.container}>
@@ -42,7 +43,7 @@ export const ProposalDetailView =({proposal, handleAproved, handleComment, showC
             <div className={styles.commentsContainer}>
                 <div className={styles.comment}>
                 <h3>Comment boss</h3>
-                <p>aqui van los comentarios del jefe</p>
+                <p>{proposal.comments.bossComment}</p>
                 </div>
                 <div className={styles.comment}>
                 <h3>Comment director</h3>

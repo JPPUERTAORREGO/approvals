@@ -30,19 +30,21 @@ export const AllProposalsView =()=>{
     }
 
     const handleComment =(proposal)=> {
-        setShowCommentInput(!showCommentInput)        
-        proposal.comments.bossComment=inputTextComment
+        setShowCommentInput(!showCommentInput)       
+
     }
 
     const handleSendComment =(proposal)=> {
         proposal.stateComment=25 
         setShowCommentInput(!showCommentInput)
         setShowDetail(!showDetail)
+        proposal.comments.bossComment=inputTextComment
         console.log('click from comment', proposal)
     }
 
     const handleDetail =(proposal) => {
         setProposalDetail(proposal)
+        setShowCommentInput(false)
         setShowDetail(!showDetail)
 
     }

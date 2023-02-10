@@ -1,0 +1,47 @@
+[
+    {
+        "userId":1,
+        "user":"coordinador",
+        "mail":"coordinador@mail.com",
+        "password":"1234",
+        "token":1,
+        "coordinadorStatus":true,
+        "jefeStatus":false,
+        "directorStatus": false,
+        "orderStatus": false
+    },
+    {
+        "userId":2,
+        "user":"jefe",
+        "mail":"jefe@mail.com",
+        "password":"1234",
+        "token":2,
+        "coordinadorStatus":false,
+        "jefeStatus":true,
+        "directorStatus": false,
+        "orderStatus": false
+    },
+    {
+        "userId":3,
+        "user":"director",
+        "mail":"director@mail.com",
+        "password":"1234",
+        "token":3,
+        "coordinadorStatus":false,
+        "jefeStatus":false,
+        "directorStatus": true,
+        "orderStatus": false
+    },
+    {
+        "userId":4,
+        "user":"creador orden",
+        "mail":"orden@mail.com",
+        "password":"1234",
+        "token":4,
+        "coordinadorStatus":false,
+        "jefeStatus":false,
+        "directorStatus": false,
+        "orderStatus": true
+    }
+
+]

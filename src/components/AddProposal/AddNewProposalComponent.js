@@ -65,7 +65,7 @@ export const AddNewProposalComponent =()=> {
 
         setProposals([newProposal,...proposals])    
 
-        navigate('/proposals')
+        navigate('/proposals');
 
     }
 

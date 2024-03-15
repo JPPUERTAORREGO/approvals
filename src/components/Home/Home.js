@@ -6,13 +6,16 @@ export const Home =()=>{
     const navigate =useNavigate()
 
     const handleOnProposals =()=>{
-        navigate("/proposals")
+        navigate("/login")
     }
 
     return(
+        <>
         <ButtonNav 
         handleNav={handleOnProposals}
         goTo={'proposals'}
         />
+        </>
+
     )
 }
